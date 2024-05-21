@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unnecessary_brace_in_string_interps
 
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var b;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +23,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(""),
-          ElevatedButton(onPressed: (){}, child: Text("Click Here")),
+          Center(child: Text("${b}")),
+          ElevatedButton(onPressed: (){
+            setState(() {
+              b = TimeOfDay.now();
+            });
+          }, child: Text("Click Here"))
         ],
       ),
     );
